@@ -1,7 +1,6 @@
 import pandas as pd
 from random import randint
 
-
 samples = pd.read_csv('files/sample_texts.csv')
 
 languages = pd.read_csv('files/language-codes.csv')
