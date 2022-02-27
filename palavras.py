@@ -1,17 +1,15 @@
 import pandas as pd
-#from matplotlib import pyplot
-#import numpy as np
+from random import randint
 
-# countries = pd.read_csv('files/countries_data.csv')
-# print(countries)
 
-# samples = pd.read_csv('files/samples_texts.csv')
-# print(samples)
+samples = pd.read_csv('files/sample_texts.csv')
 
-valids = pd.read_csv('files/valids.csv')
-# print(valids[valids['valid'] == 1])
+languages = pd.read_csv('files/language-codes.csv')
 
-# world = pd.read_csv('files/world.csv')
-# print(world)
+n_languages = len(languages)
 
-dominios_validos = valids[valids['valid'] == 1]['code'].values
+bloco = languages.iloc[randint(0, n_languages)]
+texto_bloco = {'idioma': languages[languages['cod'] == bloco['cod']]['language'].iloc[0], 'texto': samples[samples['cod'] == bloco['cod']]['sample_text'].iloc[0]}
+
+print(texto_bloco['idioma'])
+print(texto_bloco['texto'])
